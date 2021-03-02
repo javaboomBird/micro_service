@@ -15,10 +15,18 @@ group = 'com.huangzh.gateway'
 version = '0.0.1-SNAPSHOT'
 
 dependencies {
+
+    // 配合实现令牌桶算法限流
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation 'org.springframework.cloud:spring-cloud-starter-gateway'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    // 引入 Spring Cloud Alibaba Sentinel 相关依赖，使用 Sentinel 提供服务保障，并实现对其的自动配置
+    implementation'com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel'
+    implementation'com.alibaba.cloud:spring-cloud-alibaba-sentinel-gateway'
+
+
+
+
 }
 
 
