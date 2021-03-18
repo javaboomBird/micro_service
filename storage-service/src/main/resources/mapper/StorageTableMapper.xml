@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huangzh.storageservice.mapper.StorageTableMapper">
+  <resultMap id="BaseResultMap" type="com.huangzh.storageservice.model.StorageTable">
+    <!--@mbg.generated generated on Thu Mar 11 10:48:17 CST 2021.-->
+    <!--@Table storage_table-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="commodity_code" jdbcType="VARCHAR" property="commodityCode" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Thu Mar 11 10:48:17 CST 2021.-->
+    id, commodity_code, `count`
+  </sql>
+
+  <update id="deduct">
+    update storage_table set count = count-#{count} where commodity_code=#{commodityCode}
+  </update>
+</mapper>
