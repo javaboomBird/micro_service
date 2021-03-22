@@ -32,7 +32,7 @@ public class TheadLocalDemo {
         public void run() {
             try {
                 threadId.set(new Random().nextInt(10));
-                System.out.println(Thread.currentThread().getName() + "----------------" +
+                System.out.println(Thread.currentThread().getName() + "---------------------" +
                         threadId.get());
             } finally {
                 threadId.remove();
