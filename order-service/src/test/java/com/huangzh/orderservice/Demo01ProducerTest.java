@@ -42,7 +42,7 @@ public class Demo01ProducerTest {
      */
     @Test
     public void testMyMQConcurrent() throws InterruptedException {
-        ExecutorService threadPool = Executors.newFixedThreadPool(20);
+        ExecutorService threadPool = Executors.newFixedThreadPool(30);
         for (int i = 0; i < 100000; i++) {
             threadPool.submit(() -> {
                 OrderTable order=new OrderTable().setCommodityCode("1cnm").setCount(50).setMoney(BigDecimal.valueOf(100)).setUserId("123").setId((int) System.currentTimeMillis());
