@@ -4,6 +4,7 @@ package com.huangzh.orderservice.controller;
 import com.huangzh.orderservice.mapper.OrderTableMapper;
 import com.huangzh.orderservice.model.OrderTable;
 import com.huangzh.orderservice.result.Result;
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
+@Slf4j
 @RestController
 @RequestMapping("order/")
 public class OrderController {
@@ -27,8 +29,9 @@ public class OrderController {
      * 创建订单
      */
     @GetMapping("create")
-    public Result create(String userId, String commodityCode, int orderCount) {
-        mapper.insert(new OrderTable().setUserId(userId).setCommodityCode(commodityCode).setCount(orderCount));
+    public Result create() {
+//        mapper.insert(new OrderTable().setUserId(userId).setCommodityCode(commodityCode).setCount(orderCount));
+        log.info("生成订单");
         return Result.success();
     }
 
